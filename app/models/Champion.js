@@ -1,7 +1,7 @@
 
     export default class Champion{
         constructor(data){
-            this.id = data._id
+            this.id = data.id
             this.name = data.name
             this.imgUrl = data.imgUrl
             this.race = data.race

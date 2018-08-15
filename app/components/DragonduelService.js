@@ -2,17 +2,17 @@ import Dragon from '../models/Dragon.js';
 import Champion from '../models/Champion.js'
 
 // @ts-ignore
-const championsApi = axios.create({
-    baseURL: 'https://dragon-duel.herokuapp.com/api/champions/',
+const duelApi = axios.create({
+    baseURL: 'https://dragon-duel.herokuapp.com/api/',
     timeout: 3000
 
 })
-// @ts-ignore
-const dragonsApi = axios.create({
-    baseURL: 'https://dragon-duel.herokuapp.com/api/dragons/',
-    timeout: 3000
 
-})
+
+
+let dragonId = ''
+let champId = ''
+let gameId = ''
 
 export default class DragonduelService {
     constructor() {
@@ -20,7 +20,7 @@ export default class DragonduelService {
 
 
     getDragons(draw) {
-        dragonsApi.get()
+        duelApi.get('dragons')
             .then(res => {
                 let dragons = res.data.map(rawDragon => {
                     return new Dragon(rawDragon)
@@ -31,7 +31,7 @@ export default class DragonduelService {
 
 
     getChampions(draw) {
-        championsApi.get()
+        duelApi.get('champions')
         .then(res=> {
             let champions= res.data.map(rawChampion => {
                 return new Champion(rawChampion)
@@ -40,5 +40,21 @@ export default class DragonduelService {
         })
     }
 
+    //setDragon(dragonId){
+        //activeDragonId = dragonId
+    //}
+
+    newGame(){
+        if(typeof dragonId=='number'&& typeof champId== 'number'){
+            duelApi.post('game', {dragonId: dragonId, championId: champId})
+                .then(res=>{
+                    console.log(res)
+                    gameId = res.data.game._id
+                    //draw(res.data.game)
+                })
+        }else{
+            alert('Need both dragon and champ')
+        }
+    }
 
 }

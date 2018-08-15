@@ -8,9 +8,8 @@ function drawChampions(champions) {
     for (let i = 0; i < champions.length; i++) {
         const champion = champions[i];
         template += `
-        <div class="col-12 champions text-center">
+        <div class="champions text-center">
         <img src="${champion.imgUrl}" alt="champs">
-        <p>${champion.id}</p>
         <p>${champion.name}</p>
         <p>${champion.race}</p>
         <p>${champion.hp}</p> 
@@ -26,9 +25,8 @@ function drawDragons(dragons) {
     for (let i = 0; i < dragons.length; i++) {
         const dragon = dragons[i];
         template += `
-        <div class="col-12 dragons">
+        <div class="dragons">
         <img src="${dragon.imgUrl}" alt="draaaaaayginz">
-        <p>${dragon.id}</p>
         <p>${dragon.name}</p>
         <p>${dragon.maxHp}</p>
         <p>${dragon.currentHp}</p> 
@@ -45,4 +43,8 @@ export default class DragonduelController {
         dragonService.getChampions(drawChampions)
     }
 
+
+    //setChamp
+        //dragonService.setChamp(champId)
+    //setDragon
 }

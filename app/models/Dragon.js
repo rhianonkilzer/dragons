@@ -3,11 +3,11 @@
 
 export default class Dragon{
     constructor(data){
-        this.id = data._id
-        this.name = data.name
         this.imgUrl = data.imgUrl
-        this.maxHp = data.maxHp
-        this.currentHp = data.currentHp
+        this.id = data.id
+        this.name = data.name
+        this.maxHp = data.maxHP
+        this.currentHp = data.currentHP
     }
 }
 
