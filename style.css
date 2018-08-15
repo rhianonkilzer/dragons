@@ -1,0 +1,14 @@
+img{
+    height: auto;
+    width: 200px;
+}
+
+
+.body-background{
+    background-image: linear-gradient(120deg, #4b0303 0%, #ffffff 100%);
+}
+
+p{
+    background-color: black;
+    color: white;
+}
