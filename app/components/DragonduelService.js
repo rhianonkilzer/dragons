@@ -4,7 +4,7 @@ import Champion from '../models/Champion.js'
 
 // @ts-ignore
 const dragonsApi = axios.create({
-    baseURL:'https://dragon-duel.herokuapp.com/api/dragons',
+    baseURL:'https://dragon-duel.herokuapp.com/api/dragons/',
     timeout: 3000
 
 })
